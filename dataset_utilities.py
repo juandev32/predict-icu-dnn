@@ -27,9 +27,31 @@ api._key=KAGGLE_KEY
 api.authenticate()
 
 
-KAGGLE_DATASET="https://www.kaggle.com/datasets/akshaybe/updated-mimic-iv"
+KAGGLE_DATASET="https://www.kaggle.com/datasets/mathchi/diabetes-data-set"
 
-file_bytes= api.dataset_download_file(
-    dataset=KAGGLE_DATASET
-)
+#file_bytes= api.dataset_download_file(
+#    dataset=KAGGLE_DATASET
+#)
 
+#Test if linked to kaggle dataset
+
+dataset_files = api.dataset_list_files("mathchi/diabetes-data-set").files
+
+for file in dataset_files:
+    print(file.name)
+
+
+#create pipeline from kaggle download to locally download in 10,000 row batches
+#manipulate data with alteryx
+#use as input data per batch into neural network
+
+"""
+TODO
+kaggle api functions
+alteryx tutorials
+
+considerations for input data
+
+how to make it so that sufficient data is processed in synx as input data per batch
+
+"""
